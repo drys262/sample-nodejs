@@ -2,6 +2,9 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'asia.gcr.io/sample-project-219203/sample-node', '.']
 
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'asia.gcr.io/sample-project-219203/sample-node']
+
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['set', 'image', 'deployment/helloworld-deployment', 'sample-node-container=asia.gcr.io/sample-project-219203/sample-node']
     env:
