@@ -1,12 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'asia.gcr.io/sample-project-219203/sample-node:v3', '.']
+    args: ['build', '-t', 'asia.gcr.io/sample-project-219203/sample-node:v6', '.']
 
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set', 'image', 'deployment/helloworld-deployment', 'sample-node-container=asia.gcr.io/sample-project-219203/sample-node:v3']
+    args: ['set', 'image', 'deployment/helloworld-deployment', 'sample-node-container=asia.gcr.io/sample-project-219203/sample-node:v6']
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-b'
     - 'CLOUDSDK_CONTAINER_CLUSTER=sample-cluster'
 
 images:
-  - 'asia.gcr.io/sample-project-219203/sample-node:v3'
+  - 'asia.gcr.io/sample-project-219203/sample-node:v6'
