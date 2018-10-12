@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: sample-node-container
+        image: asia.gcr.io/sample-project-219203/sample-node
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
+          
